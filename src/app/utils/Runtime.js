@@ -1,10 +1,3 @@
-/*!
- * Chrome Extension Boilerplate - Runtime 1.0
- * https://github.com/williankeller/chrome-extension-boilerplate/blob/master/src/utils/runtime.js
- * Copyright 2017 "Chrome Extension Boilerplate"
- * Licensed under MIT
- */
-
  /**
  * Define browser runtime API settings.
  * @type Class

@@ -1,10 +1,3 @@
-/*!
- * Chrome Extension Boilerplate - Storage 1.2
- * https://github.com/williankeller/chrome-extension-boilerplate/blob/master/src/utils/storage.min.js
- * Copyright 2017 "Chrome Extension Boilerplate"
- * Licensed under MIT
- */
-
 /* global chrome, browser */
 
 /**

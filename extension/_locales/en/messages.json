@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Chrome Extension Boilerplate",
+    "message": "rightinbox-extension",
     "description": "Extension name"
   },
   "extDesc": {
-    "message": "A template for building extensions for Chrome.",
+    "message": "This is a rightinbox extension",
     "description": "Extension description"
   }
 }

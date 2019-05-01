@@ -1,10 +1,3 @@
-/*!
- * Chrome Extension Boilerplate - Selector 1.0
- * https://github.com/williankeller/chrome-extension-boilerplate/blob/master/src/utils/selector.js
- * Copyright 2017 "Chrome Extension Boilerplate"
- * Licensed under MIT
- */
-
  /**
  * Define Selector functions.
  * @type Class
