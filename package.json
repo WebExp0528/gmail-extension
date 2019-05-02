@@ -1,7 +1,7 @@
 {
-  "name": "dialer-extension",
+  "name": "rightinbox-extension",
   "version": "1.0.0",
-  "description": "This is a phone call extension using AWS Connect API",
+  "description": "This is a chrome extension similar to rightinbox extension.",
   "license": "MIT",
   "devDependencies": {
     "ajv": "^6.10.0",
