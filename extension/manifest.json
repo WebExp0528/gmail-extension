@@ -10,6 +10,7 @@
     {
       "matches": ["http://mail.google.com/*", "https://mail.google.com/*", "https://inbox.google.com/*" ],
       "js": [
+        "asset/js/inboxsdk.js",
         "dist/main.js"
       ],
       "run_at": "document_end"
@@ -34,8 +35,9 @@
   "permissions": [
     "activeTab",
     "storage",
-    "http://*/*",
-    "https://*/*"
+    "http://mail.google.com/*", 
+    "https://mail.google.com/*", 
+    "https://inbox.google.com/*"
   ],
 
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"

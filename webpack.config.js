@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ChromeExtensionReloader  = require('webpack-chrome-extension-reloader')
 
 module.exports = {
   entry: {
@@ -79,7 +80,13 @@ module.exports = {
 
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new ChromeExtensionReloader({
+      entries: {
+        contentScript: ['main'],
+        background: 'background'
+      }
+    }),
   ],
 
   devtool: 'eval-cheap-module-source-map'
