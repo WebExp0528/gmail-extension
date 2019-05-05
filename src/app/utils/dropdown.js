@@ -22,6 +22,14 @@ class Dropdown {
 	render() {
 		this.props.container.appendChild(new DropdownMenu(this.props.dropdownItems).render())
 		this.dropdownButton = button(this.templateOfDropdownButton(this.props.title)).click(function () {
+			var dropdowns = document.getElementsByClassName("dropdown-menu")
+			var i
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i]
+				if (openDropdown.classList.contains('show') && openDropdown != this.parentElement.firstChild) {
+					openDropdown.classList.remove('show')
+				}
+			}
 			selector(this.parentElement.firstChild).toggle('show')
 		})
 		this.props.container.appendChild(this.dropdownButton)

@@ -27,7 +27,8 @@ class Main {
     //Load InboxSDK
     InboxSDK.load('1', 'sdk_Gmail-Extension_290e96f7ea').then((sdk) => this.loadingInboxSDK(sdk))
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
+      console.log(event.target)
       if (!event.target.matches('.btndropdown')) {
         var dropdowns = document.getElementsByClassName("dropdown-menu")
         var i
