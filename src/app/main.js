@@ -1,51 +1,119 @@
 import { selector } from 'utils/Selector.js'
-import { button } from 'utils/Button.js'
+import { dropdown } from 'utils/dropdown.js'
 
-//handle InboxStatusBar
+//Handle InboxStatusBar
 var handleInboxStatusBar
+//Handel of This object
+var thisobj
 
+/**
+ * Define content script functions
+ * @type {class}
+ */
 class Main {
   constructor () {
     selector(document).ready(this.bind())
   }
 
+  /**
+   * Document Ready
+   * @returns {void}
+   */
   bind() {
 
-    /**
-    * Load InboxSDK
-    */
-    InboxSDK.load('1', 'sdk_Gmail-Extension_290e96f7ea').then((sdk)=>this.loadingInboxSDK(sdk))
+    //Save this object
+    thisobj = this
 
+    //Load InboxSDK
+    InboxSDK.load('1', 'sdk_Gmail-Extension_290e96f7ea').then((sdk) => this.loadingInboxSDK(sdk))
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.btndropdown')) {
+        var dropdowns = document.getElementsByClassName("dropdown-menu")
+        var i
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i]
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show')
+          }
+        }
+      }
+    }
   }
 
   /**
-  *  Load functions in InboxSDK
-  */
+   * Load functions in InboxSDK
+   * @param {object} sdk
+   * @returns {void}
+   */
   loadingInboxSDK(sdk){
 
     //register Composeview
-    sdk.Compose.registerComposeViewHandler(function(composeView){
+    sdk.Compose.registerComposeViewHandler(function (composeView) {
 
       //Add StatusBar in Composeview
-      //handle InboxStatusBar
-      handleInboxStatusBar = composeView.addStatusBar({ height: 60 })
-
-      //add buttons in inboxstatusbar
-      var buttons = [
-        {
-          'el':"<div id=\"btn-followup\" class=\"T-I J-J5-Ji aoO T-I-atl L3 T-I-Zf-aw2 T-I-ax7\" role=\"button\" data-tooltip=\"\" data-tooltip-delay=\"600\" style=\"width: 12ex;-webkit-user-select: none;\">FollowUp  </div>",
-          'callback': function(){console.log("clicked FollowUp Button!!!!!!!!!!!")}
-        },
-      ]
-
-      for (var value of buttons) {
-        var startusbarbutton = button(value['el']).click(value['callback'])
-        handleInboxStatusBar.el.append(startusbarbutton)
-      }
-
+      thisobj.addStatusBar(composeView)
     })
   }
 
+  /**
+   * Add functions in StatusBar
+   * @param {object} composeView
+   * @returns {void}
+   */
+  addStatusBar(composeView) {
+
+    //Add StatusBar in ComposeView
+    handleInboxStatusBar = composeView.addStatusBar({ height: 60 })
+    handleInboxStatusBar.el.style.overflow = "visible"
+
+    //Add FolloUp Button in StatusBar
+    thisobj.addFollowUp()
+
+    //Add Other Buttons in StatusBar
+  }
+
+  /**
+   * Add function in FollowUp Button
+   * @returns {void}
+   */
+  addFollowUp() {
+
+    //Configure of FollowUp Button and Dropdown Menu
+    var followupButton = {
+      container: handleInboxStatusBar.el,
+      title: 'Follow Up ',
+      dropdownItems: [
+        {
+          title: "Once per day",
+          callback: function () {
+            alert("This is <Once per day> Button")
+          }
+        },
+        {
+          title: "Once every 2 days",
+          callback: function () {
+            alert("This is <Once every 2 days> Button")
+          }
+        },
+        {
+          title: "Once every 3 days",
+          callback: function () {
+            alert("This is <Once every 3 days> Button")
+          }
+        },
+        {
+          title: "Once per week",
+          callback: function () {
+            alert("This is <Once per week> Button")
+          }
+        }
+      ]
+    }
+
+    //Render FollowUp Button and Dropdown Menu in StatusBar
+    dropdown(followupButton).render()
+  }
 }
 
 export const main = new Main()

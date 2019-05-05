@@ -16,10 +16,9 @@ export class Button {
 
 
     /**
-    * Add button in StatusBar.
-    *
-    * @param {Function} callback
-    * @returns {button}
+    * Add click event on button
+    * @param { Function } callback
+    * @returns { button }
     */
     click(callback) {
         selector(this._element).click(callback)

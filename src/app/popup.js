@@ -21,14 +21,20 @@ class Popup {
      * Open the settings page.
      */
     selector('.open-settings').click(() => {
-      if (runtime.api('runtime').openOptionsPage) {
-        // New way to open options pages, if supported (Chrome 42+).
-        runtime.api('runtime').openOptionsPage()
-      } else {
-        // Reasonable fallback.
-        window.open(runtime.api('runtime').getURL('options.html'))
-      }
+      // if (runtime.api('runtime').openOptionsPage) {
+      //   // New way to open options pages, if supported (Chrome 42+).
+      //   runtime.api('runtime').openOptionsPage()
+      // } else {
+      //   // Reasonable fallback.
+      //   window.open(runtime.api('runtime').getURL('options.html'))
+      // }
+      window.open(runtime.api('runtime').getURL('dist/options.html'))
     })
+
+    selector('.need-help').click(() => {
+      alert("Need Help?")
+    })
+
   }
 }
 

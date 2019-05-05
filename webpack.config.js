@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ChromeExtensionReloader  = require('webpack-chrome-extension-reloader')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -78,7 +79,7 @@ module.exports = {
 
     new ExtractTextPlugin('[name].css'),
 
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
     new ChromeExtensionReloader({
@@ -87,6 +88,7 @@ module.exports = {
         background: 'background'
       }
     }),
+    new CleanWebpackPlugin()
   ],
 
   devtool: 'eval-cheap-module-source-map'
