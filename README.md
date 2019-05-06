@@ -1,6 +1,6 @@
 # rightinbox-extension
 
-##Installation
+## Installation
 
 ```bash
 # clone it
@@ -10,7 +10,7 @@ $ git clone https://github.com/webdev0528/rightinbox-extension.git
 $ npm install
 ```
 
-##Run script
+## Run script
 
 * Run script
 ```bash
@@ -19,7 +19,7 @@ $ npm install
 $ npm start
 ```
 
-##Build
+## Build
 
 ```bash
 # build files to './extension/dist'
