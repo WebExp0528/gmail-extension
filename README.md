@@ -1,4 +1,4 @@
-# rightinbox-extension
+# Rightinbox-extension
 
 ## Installation
 
