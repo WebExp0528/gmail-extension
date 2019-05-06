@@ -19,6 +19,14 @@ $ npm install
 $ npm start
 ```
 
+## Run Extension
+
+#### Load your extension on Chrome following:
+- Access chrome://extensions/
+- Check Developer mode
+- Click on Load unpacked extension
+- Select the extension folder.
+
 ## Build
 
 ```bash
