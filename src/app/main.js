@@ -1,5 +1,9 @@
-import { selector } from 'utils/Selector.js'
-import { dropdown } from 'utils/dropdown.js'
+import {
+  selector
+} from 'utils/Selector.js'
+import {
+  dropdown
+} from 'utils/dropdown.js'
 
 //Handle InboxStatusBar
 var handleInboxStatusBar
@@ -11,7 +15,7 @@ var thisobj
  * @type {class}
  */
 class Main {
-  constructor () {
+  constructor() {
     selector(document).ready(this.bind())
   }
 
@@ -47,7 +51,7 @@ class Main {
    * @param {object} sdk
    * @returns {void}
    */
-  loadingInboxSDK(sdk){
+  loadingInboxSDK(sdk) {
 
     //register Composeview
     sdk.Compose.registerComposeViewHandler(function (composeView) {
@@ -65,7 +69,9 @@ class Main {
   addStatusBar(composeView) {
 
     //Add StatusBar in ComposeView
-    handleInboxStatusBar = composeView.addStatusBar({ height: 60 })
+    handleInboxStatusBar = composeView.addStatusBar({
+      height: 60
+    })
     handleInboxStatusBar.el.style.overflow = "visible"
 
     //Add FolloUp Button in StatusBar
@@ -74,6 +80,7 @@ class Main {
     //Add Other Buttons in StatusBar
   }
 
+  //TODO: Followup
   /**
    * Add function in FollowUp Button
    * @returns {void}
@@ -84,8 +91,7 @@ class Main {
     var followupButton = {
       container: handleInboxStatusBar.el,
       title: 'Follow Up ',
-      dropdownItems: [
-        {
+      dropdownItems: [{
           title: "Once per day",
           callback: function () {
             alert("This is <Once per day> Button")
