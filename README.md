@@ -1,4 +1,4 @@
-# Rightinbox-extension
+# Gmail-extension
 
 ## Installation
 
